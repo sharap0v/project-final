@@ -27,7 +27,7 @@
 - https://habr.com/ru/articles/259055/
 
 Список выполненных задач:
-## Команды запуска
+## Команды загрузки
 ```bash
 docker run -p 5432:5432 --name postgres-db -e POSTGRES_USER=jira -e POSTGRES_PASSWORD=JiraRush -e POSTGRES_DB=jira -e PGDATA=/var/lib/postgresql/data/pgdata -v $(pwd)/pgdata:/var/lib/postgresql/data -d postgres
 ```
@@ -46,6 +46,11 @@ docker run -p 5433:5432 --name postgres-db-test -e POSTGRES_USER=jira -e POSTGRE
   - настройки почты
 
     Значения этих проперти должны считываться при старте сервера из переменных окружения машины. `Easy task`
+  - ```
+    добавлен .env файл в проект 
+    написан тест
+    проект учебный .env не добавлен в gitignore
+    ```
 
 4.  Переделать тесты так, чтоб во время тестов использовалась **in memory БД (H2)**, а не PostgreSQL. Для этого нужно определить 2 бина, и выборка какой из них использовать должно определяться активным профилем Spring. H2 не поддерживает все фичи, которые есть у PostgreSQL, поэтому тебе прийдется немного упростить скрипты с тестовыми данными.
 
