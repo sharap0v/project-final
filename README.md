@@ -73,10 +73,29 @@ docker run -p 5433:5432 --name postgres-db-test -e POSTGRES_USER=jira -e POSTGRE
 - время окончания разработки - **ready_for_review**
 - время конца тестирования - **done**
 
-9.  Написать `Dockerfile` для основного сервера
+9.  Написать `Dockerfile` для основного сервера ✅
+```
+добавлен Dockerfile и docker-compose.yml
+docker build --no-cache --progress=plain -t project-final-app .
 
-10. Написать `docker-compose` файл для запуска контейнера сервера вместе с БД и [nginx](https://nginx.org/ru/docs/). Для nginx используй конфиг-файл `config/nginx.conf`. При необходимости файл конфига можно редактировать. `Hard task`
+```
+```bash
+docker build --no-cache --progress=plain -t project-final-app .
+```
+```bash
+docker-compose up -d
+```
 
+10. Написать `docker-compose` файл для запуска контейнера сервера вместе с БД и [nginx](https://nginx.org/ru/docs/). Для nginx используй конфиг-файл `config/nginx.conf`. При необходимости файл конфига можно редактировать. `Hard task` ✅
+```bash
+docker-compose down -v
+```
+```bash
+docker-compose up -d --build
+```
+```bash
+
+```
 11. Добавить локализацию минимум на двух языках для шаблонов писем (mails) и стартовой страницы `index.html`.
 
 12. Переделать механизм распознавания «свой-чужой» между фронтом и беком с `JSESSIONID` на `JWT`. Из сложностей – тебе придётся переделать отправку форм с фронта, чтоб добавлять хедер аутентификации. `Extra-hard task`
