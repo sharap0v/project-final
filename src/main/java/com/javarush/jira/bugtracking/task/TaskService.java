@@ -171,7 +171,14 @@ public class TaskService {
     }
 
     private Long checkTaskTimeInTesting(Task task) {
+        if(task == null) {
+            return 0L;
+        }
         List<Activity> activities = activityHandler.getRepository().findAllByTaskIdOrderByUpdatedDesc(task.getId());
+        if(activities == null || activities.isEmpty()) {
+            return 0L;
+        }
+
         LocalDateTime readyForReviewTime = null;
         LocalDateTime doneTime = null;
 
